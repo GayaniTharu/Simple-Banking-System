@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Banking System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        label {
+            display: block;
+            margin-top: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color: darkgreen;"> Banking System</h1>
+    </header>
+
+    <main>
+        <h2>Actions</h2>
+        <label for="choice" style="font-weight: 300;" >Choose an action:</label>
+        <br><br>
+        <select id="choice">
+            <option value="create">Create Account</option>
+
+            <option value="deposit">Deposit</option>
+            
+            <option value="withdraw">Withdraw</option>
+            <option value="balance">Check Balance</option>
+        </select>
+
+        <br>
+
+        <div id="account-info">
+            <label for="account-name">Account Holder Name:</label>
+            <input type="text" id="account-name">
+            <br>
+
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount">
+            <br>
+        </div>
+
+<br>
+        <button onclick="performAction()" style="background-color: blue;">Submit</button>
+
+        <div id="result"></div>
+    </main>
+
+    <script>
+        function performAction() {
+            const choice = document.getElementById('choice').value;
+            const accountName = document.getElementById('account-name').value;
+            const amount = parseFloat(document.getElementById('amount').value);
+
+            switch (choice) {
+                case "create":
+                    createAccount(accountName, amount);
+                    break;
+                case "deposit":
+                    deposit(accountName, amount);
+                    break;
+                case "withdraw":
+                    withdraw(accountName, amount);
+                    break;
+                case "balance":
+                    checkBalance(accountName);
+                    break;
+                default:
+                    console.log("Invalid choice");
+            }
+        }
+
+        function createAccount(name, initialBalance) {
+            // Implementation for creating an account
+            // ...
+
+            // For demonstration purposes, display a message
+            displayResult(`Account created successfully for ${name} with an initial balance of $${initialBalance}`);
+        }
+
+        function deposit(name, amount) {
+            // Implementation for depositing into an account
+            // ...
+
+            // For demonstration purposes, display a message
+            displayResult(`Successfully deposited $${amount}. Current balance: $${newBalance}`);
+        }
+
+        function withdraw(name, amount) {
+            // Implementation for withdrawing from an account
+            // ...
+
+            // For demonstration purposes, display a message
+            displayResult(`Successfully withdrew $${amount}. Current balance: $${newBalance}`);
+        }
+
+        function checkBalance(name) {
+            // Implementation for checking account balance
+            // ...
+
+            // For demonstration purposes, display a message
+            displayResult(`Account Holder: ${name}, Current Balance: $${balance}`);
+        }
+
+        function displayResult(message) {
+            document.getElementById('result').innerText = message;
+        }
+    </script>
+</body>
+</html>
